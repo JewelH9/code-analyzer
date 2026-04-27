@@ -188,6 +188,9 @@ def detect_recursion(code: str, language: str) -> dict:
         "recursive_functions": ["fibonacci", "factorial"]
     }
     """
+    # These are never truly recursive in our context
+    BLOCKLIST = ['main', 'Main', 'setup', 'loop']
+
     patterns = PATTERNS.get(language, PATTERNS["python"])
     recursive_functions = []
 
@@ -195,9 +198,13 @@ def detect_recursion(code: str, language: str) -> dict:
     function_names = patterns["function_def"].findall(code)
 
     for func_name in function_names:
+
+        # ← THIS LINE WAS MISSING IN YOUR VERSION
+        if func_name in BLOCKLIST:
+            continue
+
         # Find where function starts
         if language == "python":
-            # Get the function body (everything after "def func_name(")
             func_pattern = re.compile(
                 rf'def\s+{func_name}\s*\(.*?(?=\ndef\s|\Z)',
                 re.DOTALL
