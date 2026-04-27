@@ -5,7 +5,10 @@ from flask_cors import CORS
 from analyzer import analyze_code   # ← Import our engine
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=[
+    "http://localhost:3000",
+    "https://*.vercel.app"
+])
 
 
 @app.route('/health', methods=['GET'])
