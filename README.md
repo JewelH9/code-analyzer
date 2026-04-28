@@ -9,7 +9,7 @@ A full-stack web application that analyzes Python and C++ code for time complexi
 
 ## 📸 Preview
 
-![Code Analyzer Preview](https://code-analyzer-lac.vercel.app/preview.png)
+![Code Analyzer Preview](preview.jpg)
 
 ---
 
@@ -286,7 +286,7 @@ Rule-based gives deterministic, explainable results for known patterns. ML adds 
 
 ## 👨‍💻 Author
 
-**JewelH9**  
+**Jewel Hossain**  
 Final Year CS Student  
 [GitHub](https://github.com/JewelH9/code-analyzer)
 
